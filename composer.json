@@ -1,6 +1,6 @@
 {
     "name": "mapslat/mapslat-php",
-    "description": "The Maps.lat SDK provides methods for all API functions.",
+    "description": "Package provides methods for the Maps.lat API.",
     "license": "MIT",
     "authors": [
         {

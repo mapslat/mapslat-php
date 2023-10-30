@@ -1,0 +1,33 @@
+{
+    "name": "mapslat/mapslat-php",
+    "description": "The Maps.lat SDK provides methods for all API functions.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maps.lat",
+            "email": "support@maps.lat"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "ext-curl": "*",
+        "symfony/http-client": "^6.3"
+    },
+    "require-dev": {
+        "vlucas/phpdotenv": "^5.5",
+        "phpunit/phpunit": "^10.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mapslat\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mapslat\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
+}

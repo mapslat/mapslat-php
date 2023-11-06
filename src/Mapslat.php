@@ -21,39 +21,39 @@ class Mapslat {
 		);
 	}
 
-	public function geocoding(array|string $payload): ResponseInterface {
+	public function geocoding(array|string $payload): ?ResponseInterface {
 		return $this->httpClient->fetch('geocoding', $payload);
 	}
 
-	public function geocodingReverse(array|string $payload): ResponseInterface {
+	public function geocodingReverse(array|string $payload): ?ResponseInterface {
 		return $this->httpClient->fetch('geocoding/reverse', $payload);
 	}
 
-	public function geocodingLookup(array|string $payload): ResponseInterface {
+	public function geocodingLookup(array|string $payload): ?ResponseInterface {
 		return $this->httpClient->fetch('geocoding/lookup', $payload);
 	}
 
-	public function routing(array|string $payload): ResponseInterface {
+	public function routing(array|string $payload): ?ResponseInterface {
 		return $this->httpClient->fetch('routing', $payload);
 	}
 
-	public function routingLocate(array|string $payload): ResponseInterface {
+	public function routingLocate(array|string $payload): ?ResponseInterface {
 		return $this->httpClient->fetch('routing/locate', $payload);
 	}
 
-	public function isoline(array|string $payload): ResponseInterface {
+	public function isoline(array|string $payload): ?ResponseInterface {
 		return $this->httpClient->fetch('isoline', $payload);
 	}
 
-	public function matrix(array|string $payload): ResponseInterface {
+	public function matrix(array|string $payload): ?ResponseInterface {
 		return $this->httpClient->fetch('matrix', $payload);
 	}
 
-	public function matching(array|string $payload): ResponseInterface {
+	public function matching(array|string $payload): ?ResponseInterface {
 		return $this->httpClient->fetch('matching', $payload);
 	}
 
-	public function matchingAttributes(array|string $payload): ResponseInterface {
+	public function matchingAttributes(array|string $payload): ?ResponseInterface {
 		return $this->httpClient->fetch('matching/attributes', $payload);
 	}
 

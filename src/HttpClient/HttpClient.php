@@ -23,7 +23,7 @@ class HttpClient {
 		protected bool $throw) { }
 
 
-	public function fetch(string $endpoint, array|string $payload): ?ResponseInterface {
+	public function fetch(string $endpoint, array|string $payload): ResponseInterface {
 		if (!is_array($payload)) $payload = json_decode($payload, true);
 		try {
 			$response = $this->client->request(
@@ -42,7 +42,7 @@ class HttpClient {
 			return $response;
 		} catch (TransportExceptionInterface $e) {
 			if ($this->throw) throw new HttpTransportException("Mapslat server is currently unreachable.");
-			return null;
+			return new EmptyResponse;
 		} catch (ClientException) {
 			$statusCode = $response->getStatusCode();
 			if ($statusCode >= 500) throw new HttpServerException("An unexpected error occurred at Mapslat server.", $statusCode);
@@ -50,10 +50,10 @@ class HttpClient {
 			$message = json_decode($response->getContent(false), true)['error'] ?? "Unknown client error occurred.";
 			if ($this->throw) throw new HttpClientException($message);
 
-			return null;
+			return new EmptyResponse;
 		} catch (Throwable $e) {
 			if ($this->throw) throw new UnknownErrorException("", "", $e);
-			return null;
+			return new EmptyResponse;
 		}
 	}
 

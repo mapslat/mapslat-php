@@ -37,13 +37,13 @@ The request is built from an array or from a json string that you pass to the me
 
 ```php
 // array as input data
-$geocoding = $mapslat->search([
+$search = $mapslat->search([
 	'query' => 'chicago',
 	'limit' => 1
 ]);
 
 // or json as input data
-$geocoding = $mapslat->search('{
+$search = $mapslat->search('{
 	"query": "london",
 	"limit": 1
 }');
@@ -149,7 +149,7 @@ We will be glad if you take part in the work on this package. Create issues if y
 
 ## Support and feedback
 
-Be sure to visit the [Maps.lat documentation](https://maps.lat/docs) for additional information about our API.
+Be sure to visit the [Maps.lat documentation](https://maps.lat/api-reference) for additional information about our API.
 
 If you find a bug, please submit the issue in [Github directly](https://github.com/mapslat/mapslat-php/issues).
 

@@ -21,24 +21,32 @@ class Mapslat {
 		);
 	}
 
-	public function geocoding(array|string $payload): ResponseInterface {
-		return $this->httpClient->fetch('geocoding', $payload);
+	public function search(array|string $payload): ResponseInterface {
+		return $this->httpClient->fetch('search', $payload);
 	}
 
-	public function geocodingReverse(array|string $payload): ResponseInterface {
-		return $this->httpClient->fetch('geocoding/reverse', $payload);
+	public function reverse(array|string $payload): ResponseInterface {
+		return $this->httpClient->fetch('reverse', $payload);
 	}
 
-	public function geocodingLookup(array|string $payload): ResponseInterface {
-		return $this->httpClient->fetch('geocoding/lookup', $payload);
+	public function lookup(array|string $payload): ResponseInterface {
+		return $this->httpClient->fetch('lookup', $payload);
 	}
 
-	public function routing(array|string $payload): ResponseInterface {
-		return $this->httpClient->fetch('routing', $payload);
+	public function autocomplete(array|string $payload): ResponseInterface {
+		return $this->httpClient->fetch('autocomplete', $payload);
 	}
 
-	public function routingLocate(array|string $payload): ResponseInterface {
-		return $this->httpClient->fetch('routing/locate', $payload);
+	public function route(array|string $payload): ResponseInterface {
+		return $this->httpClient->fetch('route', $payload);
+	}
+
+	public function optimal(array|string $payload): ResponseInterface {
+		return $this->httpClient->fetch('optimal', $payload);
+	}
+
+	public function locate(array|string $payload): ResponseInterface {
+		return $this->httpClient->fetch('locate', $payload);
 	}
 
 	public function isoline(array|string $payload): ResponseInterface {
@@ -49,12 +57,12 @@ class Mapslat {
 		return $this->httpClient->fetch('matrix', $payload);
 	}
 
-	public function matching(array|string $payload): ResponseInterface {
-		return $this->httpClient->fetch('matching', $payload);
+	public function match(array|string $payload): ResponseInterface {
+		return $this->httpClient->fetch('match', $payload);
 	}
 
-	public function matchingAttributes(array|string $payload): ResponseInterface {
-		return $this->httpClient->fetch('matching/attributes', $payload);
+	public function attributes(array|string $payload): ResponseInterface {
+		return $this->httpClient->fetch('attributes', $payload);
 	}
 
 }

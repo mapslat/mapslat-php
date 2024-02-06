@@ -10,26 +10,31 @@ $dotenv->load();
 
 $mapslat = new Mapslat($_ENV['API_KEY']);
 
-$geocoding = $mapslat->geocoding([
+$search = $mapslat->search([
 	'query' => 'chicago',
 	'limit' => 1
 ])->getHeaders();
-//print_r($geocoding);
+//print_r($search);
 
 
-$reverse = $mapslat->geocodingReverse([
+$reverse = $mapslat->reverse([
 	'lon' => -73.99672895945677,
 	'lat' => 40.72494710252593
 ])->getStatusCode();
 //print_r($reverse);
 
 
-$lookup = $mapslat->geocodingLookup([
+$lookup = $mapslat->lookup([
 	'osm_ids' => 'W1111'
 ])->toArray();
 //print_r($lookup);
 
-$routing = $mapslat->routing('{
+$autocomplete = $mapslat->autocomplete([
+	'query' => 'Berlin'
+])->toArray();
+//print_r($autocomplete);
+
+$routing = $mapslat->route('{
   "costing": "auto",
   "locations": [
 	{

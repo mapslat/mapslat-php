@@ -37,13 +37,13 @@ The request is built from an array or from a json string that you pass to the me
 
 ```php
 // array as input data
-$geocoding = $mapslat->geocoding([
+$geocoding = $mapslat->search([
 	'query' => 'chicago',
 	'limit' => 1
 ]);
 
 // or json as input data
-$geocoding = $mapslat->geocoding('{
+$geocoding = $mapslat->search('{
 	"query": "london",
 	"limit": 1
 }');
@@ -64,20 +64,20 @@ $isoline = $mapslat->isoline('{
 }')->toArray();
 
 // get status code
-$statusCode = $mapslat->geocoding([
+$statusCode = $mapslat->search([
 	'query' => 'chicago',
 	'limit' => 1
 ])->getStatusCode();
 
 // get response headers
-$reverse = $mapslat->geocodingReverse([
+$reverse = $mapslat->reverse([
 	'lon' => -73.99672895945677,
 	'lat' => 40.72494710252593
 ]);
 $headers = $reverse->getHeaders();
 
 // get raw response
-$rawResponse = $mapslat->geocoding([
+$rawResponse = $mapslat->search([
 	'query' => 'miami beach',
 	'limit' => 3
 ])->getContent();
@@ -91,23 +91,32 @@ For each Maps.lat API endpoint, there is a method for interactions.
 
 ```php
 // forward geocoding
-$data = $mapslat->geocoding($payload)->toArray();
+$data = $mapslat->search($payload)->toArray();
 
 // reverse geocoding
-$data = $mapslat->geocodingReverse($payload)->toArray();
+$data = $mapslat->reverse($payload)->toArray();
 
 // geocoding lookup
-$data = $mapslat->geocodingLookup($payload)->toArray();
+$data = $mapslat->lookup($payload)->toArray();
+```
+
+### Address autocomplete
+
+```php
+$data = $mapslat->autocomplete($payload)->toArray();
 ```
 
 ### Routing
 
 ```php
 // routing
-$data = $mapslat->routing($payload)->toArray();
+$data = $mapslat->route($payload)->toArray();
+
+// optimal route
+$data = $mapslat->optimal($payload)->toArray();
 
 //routing locate
-$data = $mapslat->routingLocate($payload)->toArray();
+$data = $mapslat->locate($payload)->toArray();
 ```
 
 ### Isoline
@@ -126,10 +135,10 @@ $data = $mapslat->matrix($payload)->toArray();
 
 ```php
 // matching routes
-$data = $mapslat->matching($payload)->toArray();
+$data = $mapslat->match($payload)->toArray();
 
 // matching attributes
-$data = $mapslat->matchingAttributes($payload)->toArray();
+$data = $mapslat->attributes($payload)->toArray();
 ```
 
 ## Contribute
